@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>เลือกโรงพยาบาลตามขนาด</title>
+    <style>
+        label {
+            font-weight: bold;
+        }
+        select, button {
+            padding: 10px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        #hospitalInfo {
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        let hospitalsData = []; // เก็บข้อมูลทั้งหมดของโรงพยาบาล
+
+        async function getDataFromAPI() {
+            try {
+                // ดึงข้อมูลจาก API
+                let response = await fetch('http://202.44.40.193/~aws/JSON/priv_hos.json');
+                if (!response.ok) {
+                    console.error("Error: Cannot fetch data from API");
+                    return;
+                }
+
+                let objectData = await response.json(); // แปลงข้อมูลเป็น JSON
+                hospitalsData = objectData.features.map(hospital => hospital.properties); // เก็บข้อมูลของโรงพยาบาล
+
+                // กรองข้อมูลโรงพยาบาลและแสดงใน Drop-Down
+                updateDropdown();
+            } catch (error) {
+                console.error("Error: " + error.message);
+            }
+        }
+
+        // ฟังก์ชันสำหรับกรองข้อมูลตามขนาดโรงพยาบาลและแสดงใน Drop-Down
+        function updateDropdown() {
+            let sizeSelection = document.getElementById("hospitalSize").value;
+            let dropdown = document.getElementById("hospitalDropdown");
+            dropdown.innerHTML = '<option value="">-- กรุณาเลือกโรงพยาบาล --</option>'; // รีเซ็ต Drop-Down
+
+            // กรองโรงพยาบาลตามขนาด
+            let filteredHospitals = hospitalsData.filter(hospital => {
+                let numBed = hospital.num_bed;
+                if (sizeSelection === "large") return numBed > 90;
+                else if (sizeSelection === "medium") return numBed >= 31 && numBed <= 90;
+                else if (sizeSelection === "small") return numBed <= 30;
+            });
+
+            // แสดงตัวเลือกใน Drop-Down
+            filteredHospitals.forEach(hospital => {
+                let option = document.createElement('option');
+                option.value = hospital.name;
+                option.textContent = hospital.name;
+                dropdown.appendChild(option);
+            });
+        }
+
+        // ฟังก์ชันสำหรับแสดงข้อมูลโรงพยาบาลที่เลือก
+        function displayHospitalInfo() {
+            let selectedHospitalName = document.getElementById("hospitalDropdown").value;
+            let hospitalInfoDiv = document.getElementById("hospitalInfo");
+            hospitalInfoDiv.innerHTML = ""; // เคลียร์ข้อมูลเก่า
+
+            // หาข้อมูลของโรงพยาบาลที่เลือก
+            let selectedHospital = hospitalsData.find(hospital => hospital.name === selectedHospitalName);
+            if (selectedHospital) {
+                // แสดงข้อมูลโรงพยาบาล
+                hospitalInfoDiv.innerHTML = `
+                    <h2>ข้อมูลโรงพยาบาล</h2>
+                    <p><strong>ชื่อโรงพยาบาล:</strong> ${selectedHospital.name}</p>
+                    <p><strong>จำนวนเตียง:</strong> ${selectedHospital.num_bed}</p>
+                    <p><strong>ที่อยู่:</strong> ${selectedHospital.address || 'ไม่มีข้อมูล'}</p>
+                `;
+            } else {
+                hospitalInfoDiv.innerHTML = "<p>กรุณาเลือกโรงพยาบาล</p>";
+            }
+        }
+
+        // เรียกฟังก์ชันเมื่อหน้าเว็บถูกโหลด
+        window.onload = getDataFromAPI;
+    </script>
+</head>
+<body>
+    <h1>เลือกโรงพยาบาลตามขนาด</h1>
+
+    <!-- ตัวเลือกขนาดของโรงพยาบาล -->
+    <label for="hospitalSize">เลือกขนาดโรงพยาบาล:</label>
+    <select id="hospitalSize" onchange="updateDropdown()">
+        <option value="">-- กรุณาเลือกขนาด --</option>
+        <option value="large">ขนาดใหญ่</option>
+        <option value="medium">ขนาดกลาง</option>
+        <option value="small">ขนาดเล็ก</option>
+    </select>
+
+    <!-- Drop-Down List สำหรับเลือกโรงพยาบาล -->
+    <br><br>
+    <label for="hospitalDropdown">โรงพยาบาล:</label>
+    <select id="hospitalDropdown">
+        <option value="">-- กรุณาเลือกโรงพยาบาล --</option>
+    </select>
+
+    <!-- ปุ่มสำหรับแสดงข้อมูลโรงพยาบาล -->
+    <br><br>
+    <button onclick="displayHospitalInfo()">แสดงข้อมูลโรงพยาบาล</button>
+
+    <!-- ส่วนแสดงข้อมูลโรงพยาบาล -->
+    <div id="hospitalInfo"></div>
+</body>
+</html>

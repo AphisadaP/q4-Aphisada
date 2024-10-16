@@ -1,0 +1,2483 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+
+
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4H6SSV3WYC"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+        dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-4H6SSV3WYC');
+</script>
+
+
+
+
+<!-- Google Tag Manager -->
+<script>(function (w, d, s, l, i) {
+    w[l] = w[l] || [];
+    w[l].push({
+        'gtm.start':
+            new Date().getTime(), event: 'gtm.js'
+    });
+    var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : '';
+    j.async = true;
+    j.src =
+        'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+    f.parentNode.insertBefore(j, f);
+})(window, document, 'script', 'dataLayer', 'GTM-NBC4ZMM');</script>
+
+<noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NBC4ZMM"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+</noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
+
+<meta charset="utf-8">
+    <meta name="generator" content="ckan 2.10.1"/>
+    <meta name="csrf_field_name" content="_csrf_token" />
+    <meta name="_csrf_token" content="Ijg2Y2Q0MTBmYTc3Nzc3NTYxOTVjNDQ2MzMwY2JlOTQ5OWM2MGNiNjUi.Zw89IA.oUa4MG-EmUdbg3scWIpSe1j4Ar8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Open Government Data of Thailand - ศูนย์กลางข้อมูลเปิดภาครัฐ ประเทศไทย">
+    <link rel="shortcut icon" type="image/png" href="/dga/images/logo2.png" sizes="32x32"/>
+<meta property="og:title" content="ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร - Open Government Data of Thailand">
+<meta property="og:description" content="ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร">
+
+
+    <title>ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร - Open Government Data of Thailand</title>
+    
+
+    
+<link
+      rel="stylesheet"
+      href="/dga/assets/OwlCarousel2-2.3.4/dist_src/assets/owl.carousel.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="/dga/assets/OwlCarousel2-2.3.4/dist_src/assets/owl.theme.default.min.css"
+    />
+    <link
+      href="/dga/assets/bootstrap-5.3.3/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/dga/css/style.css" />
+<link href="/dga/assets/handsontable.full.min.css" rel="stylesheet">
+
+
+    
+<script
+      src="/dga/assets/jquery-3.7.1.min.js"
+    ></script>
+    <script
+      src="/dga/assets/popper.min.js"
+    ></script>
+    <script
+      src="/dga/assets/bootstrap-5.3.3/js/bootstrap.min.js"
+    ></script>
+    <script src="/dga/assets/OwlCarousel2-2.3.4/dist_src/owl.carousel.min.js"></script>
+
+    <!-- highcharts -->
+    <script src="/sbs/js/highcharts/highcharts.js"></script>
+    <script src="/sbs/js/highcharts/highcharts-more.js"></script>
+    <script src="/sbs/js/highcharts/chartFunction.js"></script>
+    <script src="/sbs/js/highcharts/exporting.js"></script>
+
+    <!-- echarts -->
+    <script src="/dga/assets/echarts.min.js"></script>
+<script src="/dga/assets/vue.global.js"></script>
+<script src="/dga/assets/handsontable.full.min.js"></script>
+<script src="/dga/assets/vue-handsontable.min.js"></script>
+<script type="text/javascript">
+
+const chartDataQualityDimension = [];
+
+    $(document).ready(function () {
+
+        if(Object.keys(chartDataQualityDimension).length > 0){
+
+            // Initialize ECharts instance
+            let dataChart = document.getElementById('chart-data-quality-dimension');
+            let mydataChart = echarts.init(dataChart, null, {
+                renderer: 'svg',
+                useDirtyRect: false
+              });
+
+            // Specify chart configuration and data
+            option_data = {
+                title: {
+                  text: ''
+                },
+                
+                
+                radar: {
+                    radius: ["0%", "50%"],
+                  // shape: 'circle',
+                  center: ['50%', '60%'],
+                  indicator: chartDataQualityDimension['indicator'],
+                  axisName: {
+                    formatter: (value)=> {
+                        console.log(value)
+                        arr = value.split(' (')
+                        arr_2 = arr[1].split(') ')
+
+                        name_th = arr[0]
+                        name_eng = "(" + arr_2[0] + ")"
+                        total = arr_2[1] + ' %'
+                        
+                        rs = [
+                        `{name_th|${name_th}}`,
+                        `{name_eng|${name_eng}}`,
+                        `{total|${total}}`,
+                        ].join('\n')
+
+                        
+
+                        return rs
+                    },
+                   
+                    padding: 5,
+                    rich: {
+                        name_th: {
+                            align: 'center',
+                            lineHeight: 20,
+                            color: 'black',
+                        },
+                        name_eng: {
+                            align: 'center',
+                            lineHeight: 20,
+                            color: 'black',
+                        },
+                        total: {
+                            color: 'white',
+                            padding: 5,
+                            borderRadius: 4,
+                            backgroundColor: '#0475ba',
+                            lineHeight: 30,
+                            fontWeight:'bold',
+                            align: 'center',
+                            
+                        },
+                    }
+                  },
+                },
+                series: [
+                  {
+                    name: 'มิติคุณภาพข้อมูล',
+                    areaStyle: {},
+                    type: 'radar',
+                    
+                    data: [
+                      {
+                        value: chartDataQualityDimension['value'],
+                      }
+                     
+                    ]
+                  }
+                ]
+              };
+            
+            // Use the configuration item and data specified to show chart
+            mydataChart.setOption(option_data);
+        }
+
+        });
+</script>
+<script type="text/javascript">
+      jQuery(function ($) {
+        $(document).ready(function () {
+          var el = $(".slide-sample .owl-carousel");
+          var carousel;
+          var carouselOptions = {
+            margin: 30,
+            loop: true,
+            nav: true,
+            dots: false,
+            responsive: {
+              0: {
+                items: 1,
+                rows: 1, //custom option not used by Owl Carousel, but used by the algorithm below
+              },
+              768: {
+                items: 2,
+                rows: 1, //custom option not used by Owl Carousel, but used by the algorithm below
+              },
+              991: {
+                items: 3,
+                rows: 1, //custom option not used by Owl Carousel, but used by the algorithm below
+              },
+            },
+          };
+
+          //Taken from Owl Carousel so we calculate width the same way
+          var viewport = function () {
+            var width;
+            if (
+              carouselOptions.responsiveBaseElement &&
+              carouselOptions.responsiveBaseElement !== window
+            ) {
+              width = $(carouselOptions.responsiveBaseElement).width();
+            } else if (window.innerWidth) {
+              width = window.innerWidth;
+            } else if (
+              document.documentElement &&
+              document.documentElement.clientWidth
+            ) {
+              width = document.documentElement.clientWidth;
+            } else {
+              console.warn("Can not detect viewport width.");
+            }
+            return width;
+          };
+
+          var severalRows = false;
+          var orderedBreakpoints = [];
+          for (var breakpoint in carouselOptions.responsive) {
+            if (carouselOptions.responsive[breakpoint].rows > 1) {
+              severalRows = true;
+            }
+            orderedBreakpoints.push(parseInt(breakpoint));
+          }
+
+          //Custom logic is active if carousel is set up to have more than one row for some given window width
+          if (severalRows) {
+            orderedBreakpoints.sort(function (a, b) {
+              return b - a;
+            });
+            var slides = el.find("[data-slide-index]");
+            var slidesNb = slides.length;
+            if (slidesNb > 0) {
+              var rowsNb;
+              var previousRowsNb = undefined;
+              var colsNb;
+              var previousColsNb = undefined;
+
+              //Calculates number of rows and cols based on current window width
+              var updateRowsColsNb = function () {
+                var width = viewport();
+                for (var i = 0; i < orderedBreakpoints.length; i++) {
+                  var breakpoint = orderedBreakpoints[i];
+                  if (
+                    width >= breakpoint ||
+                    i == orderedBreakpoints.length - 1
+                  ) {
+                    var breakpointSettings =
+                      carouselOptions.responsive["" + breakpoint];
+                    rowsNb = breakpointSettings.rows;
+                    colsNb = breakpointSettings.items;
+                    break;
+                  }
+                }
+              };
+
+              var updateCarousel = function () {
+                updateRowsColsNb();
+                //Carousel is recalculated if and only if a change in number of columns/rows is requested
+                if (rowsNb != previousRowsNb || colsNb != previousColsNb) {
+                  var reInit = false;
+                  if (carousel) {
+                    //Destroy existing carousel if any, and set html markup back to its initial state
+                    carousel.trigger("destroy.owl.carousel");
+                    carousel = undefined;
+                    slides = el
+                      .find("[data-slide-index]")
+                      .detach()
+                      .appendTo(el);
+                    el.find(".fake-col-wrapper").remove();
+                    reInit = true;
+                  }
+
+                  //This is the only real 'smart' part of the algorithm
+
+                  //First calculate the number of needed columns for the whole carousel
+                  var perPage = rowsNb * colsNb;
+                  var pageIndex = Math.floor(slidesNb / perPage);
+                  var fakeColsNb =
+                    pageIndex * colsNb +
+                    (slidesNb >= pageIndex * perPage + colsNb
+                      ? colsNb
+                      : slidesNb % colsNb);
+
+                  //Then populate with needed html markup
+                  var count = 0;
+                  for (var i = 0; i < fakeColsNb; i++) {
+                    //For each column, create a new wrapper div
+                    var fakeCol = $(
+                      '<div class="fake-col-wrapper"></div>'
+                    ).appendTo(el);
+                    for (var j = 0; j < rowsNb; j++) {
+                      //For each row in said column, calculate which slide should be present
+                      var index =
+                        Math.floor(count / perPage) * perPage +
+                        (i % colsNb) +
+                        j * colsNb;
+                      if (index < slidesNb) {
+                        //If said slide exists, move it under wrapper div
+                        slides
+                          .filter("[data-slide-index=" + index + "]")
+                          .detach()
+                          .appendTo(fakeCol);
+                      }
+                      count++;
+                    }
+                  }
+                  //end of 'smart' part
+
+                  previousRowsNb = rowsNb;
+                  previousColsNb = colsNb;
+
+                  if (reInit) {
+                    //re-init carousel with new markup
+                    carousel = el.owlCarousel(carouselOptions);
+                  }
+                }
+              };
+
+              //Trigger possible update when window size changes
+              $(window).on("resize", updateCarousel);
+
+              //We need to execute the algorithm once before first init in any case
+              updateCarousel();
+            }
+          }
+
+          //init
+          carousel = el.owlCarousel(carouselOptions);
+
+        });
+      });
+    </script>
+
+
+    
+<script src="/sbs/js/dga-frontend.min.js"></script>
+
+
+<script type="module">
+    const { createApp, toRaw } = Vue
+    const app = createApp({
+        data() {
+            return {
+                metadata: [{"id": "f50b15fd-96c0-4c50-858f-89243b6937fb", "created": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "last_modified": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "size": 469, "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/f50b15fd-96c0-4c50-858f-89243b6937fb/download/priv_hos-vf22so.zip", "format": "ZIP", "mimetype": "application/zip", "name": "All resource data", "datastore_active": false, "api_info_url": "", "is_analyse": false, "offset": 0, "limit": 100, "q": "", "data": [], "sbs_po_text": {"amount": "amount", "last updated on": "last updated on"}, "ori": {"cache_last_updated": null, "cache_url": null, "created": "2020-08-13T14:34:04.382273", "datastore_active": false, "description": "", "downloadall_datapackage_hash": "af47f7d88eaec35f8471150dde9bcf7c", "downloadall_metadata_modified": "2020-08-13T14:35:13.220280", "format": "ZIP", "hash": "", "id": "f50b15fd-96c0-4c50-858f-89243b6937fb", "last_modified": "2020-08-13T14:35:14.178722", "metadata_modified": null, "mimetype": "application/zip", "mimetype_inner": null, "name": "All resource data", "package_id": "296f32c6-8c7e-4a54-ade0-0913d35d3168", "position": 0, "resource_disaggregate": [], "resource_type": null, "size": 469, "state": "active", "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/f50b15fd-96c0-4c50-858f-89243b6937fb/download/priv_hos-vf22so.zip", "url_type": "upload", "tracking_summary": {"total": 18, "recent": 12}, "has_views": false}}, {"id": "5eea0ffb-5701-4ebe-99a6-4942887d606c", "created": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "last_modified": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "size": 8420, "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/5eea0ffb-5701-4ebe-99a6-4942887d606c/download/priv_hos.zip", "format": "SHP", "mimetype": "application/zip", "name": "\u0e17\u0e35\u0e48\u0e15\u0e31\u0e49\u0e07\u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2d\u0e01\u0e0a\u0e19\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e02\u0e15\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23", "datastore_active": false, "api_info_url": "", "is_analyse": false, "offset": 0, "limit": 100, "q": "", "data": [], "sbs_po_text": {"amount": "amount", "last updated on": "last updated on"}, "ori": {"cache_last_updated": null, "cache_url": null, "created": "2020-08-13T14:34:16.135012", "datastore_active": false, "description": "", "format": "SHP", "hash": "", "id": "5eea0ffb-5701-4ebe-99a6-4942887d606c", "last_modified": "2020-08-13T14:34:16.051634", "metadata_modified": null, "mimetype": "application/zip", "mimetype_inner": null, "name": "\u0e17\u0e35\u0e48\u0e15\u0e31\u0e49\u0e07\u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2d\u0e01\u0e0a\u0e19\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e02\u0e15\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23", "package_id": "296f32c6-8c7e-4a54-ade0-0913d35d3168", "position": 1, "resource_disaggregate": [], "resource_type": null, "size": 8420, "state": "active", "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/5eea0ffb-5701-4ebe-99a6-4942887d606c/download/priv_hos.zip", "url_type": "upload", "tracking_summary": {"total": 330, "recent": 3}, "has_views": false}}, {"id": "b3651fb9-9daf-4930-ae7a-7a7ee6b000d8", "created": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "last_modified": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "size": 1839, "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/b3651fb9-9daf-4930-ae7a-7a7ee6b000d8/download/priv_hos.kml", "format": "XML", "mimetype": "application/vnd.google-earth.kml+xml", "name": "\u0e17\u0e35\u0e48\u0e15\u0e31\u0e49\u0e07\u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2d\u0e01\u0e0a\u0e19\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e02\u0e15\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23 (KML)", "datastore_active": false, "api_info_url": "", "is_analyse": false, "offset": 0, "limit": 100, "q": "", "data": [], "sbs_po_text": {"amount": "amount", "last updated on": "last updated on"}, "ori": {"cache_last_updated": null, "cache_url": null, "created": "2020-08-13T14:34:33.651999", "datastore_active": false, "description": "", "format": "XML", "hash": "", "id": "b3651fb9-9daf-4930-ae7a-7a7ee6b000d8", "last_modified": "2020-08-13T14:34:33.564230", "metadata_modified": null, "mimetype": "application/vnd.google-earth.kml+xml", "mimetype_inner": null, "name": "\u0e17\u0e35\u0e48\u0e15\u0e31\u0e49\u0e07\u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2d\u0e01\u0e0a\u0e19\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e02\u0e15\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23 (KML)", "package_id": "296f32c6-8c7e-4a54-ade0-0913d35d3168", "position": 2, "resource_disaggregate": [], "resource_type": null, "size": 1839, "state": "active", "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/b3651fb9-9daf-4930-ae7a-7a7ee6b000d8/download/priv_hos.kml", "url_type": "upload", "tracking_summary": {"total": 148, "recent": 1}, "has_views": true}}, {"id": "176c75e6-80a7-4658-ab4c-63fc97b38fcc", "created": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "last_modified": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "size": 68724, "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/176c75e6-80a7-4658-ab4c-63fc97b38fcc/download/priv_hos.gml", "format": "XML", "mimetype": "", "name": "\u0e17\u0e35\u0e48\u0e15\u0e31\u0e49\u0e07\u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2d\u0e01\u0e0a\u0e19\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e02\u0e15\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23 (GML)", "datastore_active": false, "api_info_url": "", "is_analyse": false, "offset": 0, "limit": 100, "q": "", "data": [], "sbs_po_text": {"amount": "amount", "last updated on": "last updated on"}, "ori": {"cache_last_updated": null, "cache_url": null, "created": "2020-08-13T14:34:44.762875", "datastore_active": false, "description": "", "format": "XML", "hash": "", "id": "176c75e6-80a7-4658-ab4c-63fc97b38fcc", "last_modified": "2020-08-13T14:34:44.685494", "metadata_modified": null, "mimetype": null, "mimetype_inner": null, "name": "\u0e17\u0e35\u0e48\u0e15\u0e31\u0e49\u0e07\u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2d\u0e01\u0e0a\u0e19\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e02\u0e15\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23 (GML)", "package_id": "296f32c6-8c7e-4a54-ade0-0913d35d3168", "position": 3, "resource_disaggregate": [], "resource_type": null, "size": 68724, "state": "active", "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/176c75e6-80a7-4658-ab4c-63fc97b38fcc/download/priv_hos.gml", "url_type": "upload", "tracking_summary": {"total": 91, "recent": 1}, "has_views": true}}, {"id": "d132638d-a243-4829-aed8-10ed4fad917f", "created": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "last_modified": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "size": 41751, "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/d132638d-a243-4829-aed8-10ed4fad917f/download/priv_hos.json", "format": "JSON", "mimetype": "application/json", "name": "\u0e17\u0e35\u0e48\u0e15\u0e31\u0e49\u0e07\u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2d\u0e01\u0e0a\u0e19\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e02\u0e15\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23 (JSON)", "datastore_active": false, "api_info_url": "", "is_analyse": false, "offset": 0, "limit": 100, "q": "", "data": [], "sbs_po_text": {"amount": "amount", "last updated on": "last updated on"}, "ori": {"cache_last_updated": null, "cache_url": null, "created": "2020-08-13T14:34:57.205428", "datastore_active": false, "description": "", "format": "JSON", "hash": "", "id": "d132638d-a243-4829-aed8-10ed4fad917f", "last_modified": "2020-08-13T14:34:57.122171", "metadata_modified": null, "mimetype": "application/json", "mimetype_inner": null, "name": "\u0e17\u0e35\u0e48\u0e15\u0e31\u0e49\u0e07\u0e42\u0e23\u0e07\u0e1e\u0e22\u0e32\u0e1a\u0e32\u0e25\u0e40\u0e2d\u0e01\u0e0a\u0e19\u0e43\u0e19\u0e1e\u0e37\u0e49\u0e19\u0e17\u0e35\u0e48\u0e40\u0e02\u0e15\u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23 (JSON)", "package_id": "296f32c6-8c7e-4a54-ade0-0913d35d3168", "position": 4, "resource_disaggregate": [], "resource_type": null, "size": 41751, "state": "active", "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/d132638d-a243-4829-aed8-10ed4fad917f/download/priv_hos.json", "url_type": "upload", "tracking_summary": {"total": 296, "recent": 15}, "has_views": true}}, {"id": "368fb096-2b2f-4993-9624-51c97e2904f5", "created": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "last_modified": "13 \u0e2a\u0e34\u0e07\u0e2b\u0e32\u0e04\u0e21 2563", "size": 88322, "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/368fb096-2b2f-4993-9624-51c97e2904f5/download/priv_hos.pdf", "format": "PDF", "mimetype": "application/pdf", "name": "\u0e1e\u0e08\u0e19\u0e32\u0e19\u0e38\u0e01\u0e23\u0e21\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25", "datastore_active": false, "api_info_url": "", "is_analyse": false, "offset": 0, "limit": 100, "q": "", "data": [], "sbs_po_text": {"amount": "amount", "last updated on": "last updated on"}, "ori": {"cache_last_updated": null, "cache_url": null, "created": "2020-08-13T14:35:12.258012", "datastore_active": false, "description": "", "format": "PDF", "hash": "", "id": "368fb096-2b2f-4993-9624-51c97e2904f5", "last_modified": "2020-08-13T14:35:12.159530", "metadata_modified": null, "mimetype": "application/pdf", "mimetype_inner": null, "name": "\u0e1e\u0e08\u0e19\u0e32\u0e19\u0e38\u0e01\u0e23\u0e21\u0e02\u0e49\u0e2d\u0e21\u0e39\u0e25", "package_id": "296f32c6-8c7e-4a54-ade0-0913d35d3168", "position": 5, "resource_disaggregate": [], "resource_type": null, "size": 88322, "state": "active", "url": "https://data.go.th/dataset/296f32c6-8c7e-4a54-ade0-0913d35d3168/resource/368fb096-2b2f-4993-9624-51c97e2904f5/download/priv_hos.pdf", "url_type": "upload", "tracking_summary": {"total": 148, "recent": 2}, "has_views": false}}],
+                package_id: '296f32c6-8c7e-4a54-ade0-0913d35d3168',
+                user_email: '',
+                loading: false,
+                analyse_view: 'grid',
+                cur_meta: {},
+                current_url: '',
+                is_fullscreen: false,
+                settings: {
+                    autoColumnSize: true,
+                },
+                loading_graph : false,
+                chart_type : '',
+                series : [],
+                group_type : [],
+                group_type_selected : '',
+                stext : '',
+                paging : {
+                    'start' : 1,
+                    'end' : 100,
+                },
+                download_objective : {
+                    'user_email': {
+                        'value': '', 
+                        'valid': true, 
+                        'msg': ''
+                    },
+                    'objective': {
+                        'value': '1', 
+                        'valid': true, 
+                        'msg': ''
+                    },
+                    'objective_des': {
+                        'value': '', 
+                        'valid': true, 
+                        'msg': ''
+                    },
+                    'captcha': ''
+                },
+                hotSettings: {
+                    data: [],
+                    autoWrapRow: true,
+                    autoWrapCol: true,
+                    manualColumnResize: true,
+                    columnSorting: true,
+                    rowHeaders: true,
+                    readOnly: true,
+                    colHeaders: [],
+                    colWidths: 100,
+                    rowHeights: 23,
+                    colHeights: 23,
+                    height: '500',
+                    width: '100%',
+                    licenseKey: 'non-commercial-and-evaluation'
+                }
+            }
+        },
+        methods: {
+            getBaseURL() {
+                this.current_url = location.protocol + '//' + location.host + location.pathname;
+                // return location.protocol + '//' + location.host + location.pathname;
+            },
+            findGetParameter(parameterName) {
+                let result = null,
+                    tmp = [];
+                let items = location.search.substr(1).split("&");
+                for (var index = 0; index < items.length; index++) {
+                    tmp = items[index].split("=");
+                    if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+                }
+
+                return result;
+            },
+            showFullScreen() {
+                $('main header, main .block-breadcrumb, footer footer, footer > div.container').hide();
+                $('footer').addClass('pb-2 pt-2');
+            },
+            genIframe() {
+                let width_embed = $('#width_embed').val();
+                let height_embed = $('#height_embed').val();
+                let src = $('.btn_embed').attr('data-module-url');
+                let iframe = '<iframe width="' + width_embed + '" height="' + height_embed + '" src="' + src + '" frameBorder="0"></iframe>';
+                $('#code').val(iframe);
+            },
+            getGroupType() {
+                this.group_type = [];
+                let data_record = toRaw(this.cur_meta.data.records);
+                if(typeof data_record !== 'undefined' && data_record.length > 0) {
+                    data_record.map((value, key) => {
+                        let raw_value = toRaw(value);
+                        Object.keys(value).map((k, index) => {
+                            let v = value[k];
+                            if (!Number.isInteger(v) && k !== '_id') {
+                                let index = this.group_type.indexOf(k);
+                                if (index === -1) {
+                                    this.group_type.push(k);
+                                }
+                            }
+                        })
+                    });
+                }
+            },
+            async getApi2(url) {
+                document.querySelector('#sbs-api .modal-content').innerHTML = 'Loading...'
+                try {
+                    const fetch_res = await fetch(url);
+                    const res = await fetch_res.text();
+                    const html = $.parseHTML( res )
+                    const mc = html[1].querySelector('.modal-content').innerHTML;
+                    document.querySelector('#sbs-api .modal-content').innerHTML = mc;
+                } catch (e) {
+                    console.log('e', e);
+                }
+            },
+            async trackDownload(res_url) {
+                let url = document.body.getAttribute('data-site-root') + '_tracking';
+                let params = new URLSearchParams({
+                    url: res_url,
+                    type: 'resource'
+                });
+
+                await fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded'
+                    },
+                    body: params.toString()
+                });
+
+            },
+            renderGraph(chartType) {
+                this.getGroupType();
+                if (typeof chartType === 'undefined') {
+                    this.chart_type = 'column';
+                    let raw_group_type = toRaw(this.group_type);
+                    this.group_type_selected = raw_group_type[0];
+
+                } else {
+                    this.chart_type = chartType;
+                }
+
+
+                this.loading_graph = true;
+
+                let renderBox = 'graph1';
+                let data_record = toRaw(this.cur_meta.data.records);
+                if (typeof data_record === 'undefined') {
+                    data_record = [];
+                }
+                let x = this.group_type_selected;
+                let graph_title = this.cur_meta.name + ' ' + this.cur_meta.sbs_po_text['last updated on'] + ' ' + this.cur_meta.last_modified;
+                let amount = this.cur_meta.sbs_po_text['amount'];
+
+
+                //  Category and series
+                let category = new Array();
+                let series = new Array();
+                data_record.map((value, key) => {
+                    if (typeof category[0] == 'undefined') {
+                        category[0] = new Array();
+                        category[0].data = new Array();
+                    }
+
+                    let x_agris = value[x];
+                    if (x_agris == '') {
+                        x_agris = '-';
+                    }
+                    category[0].data.push(x_agris);
+                    category[0].name = x;
+                    let i = 0;
+                    Object.keys(value).map((k, index) => {
+                        let v = value[k];
+                        if (typeof series[i] == 'undefined') {
+                            series[i] = new Array();
+                            series[i].data = new Array();
+                        }
+
+                        if (Number.isInteger(v) && k != '_id') {
+                            series[i].name = k;
+                            series[i].visible = (i == 0) ? true : false;
+                            let obj = {
+                                name: x_agris,
+                                y: parseInt(v),
+                                selected: false,
+                            };
+                            series[i].data.push(obj);
+                            i = i + 1;
+                        }
+                    })
+                })
+
+                this.series = series;
+                let step = Math.ceil((data_record.length * 8) / 100);
+
+                exporting = false;
+                let action_zoom = false;
+                dynamicGraph(this.chart_type, renderBox, '', category, series, amount, '', step, action_zoom);
+
+                // Zoom Chart
+                $('.expand').click(function () {
+                    var windowsize = $(window).width();
+                    var windowHeight = $(window).height();
+
+                    if (windowsize > 750) {
+                        $('#fullchart').width((windowsize - 100));
+                        $('#fullchart').height((windowHeight - 100));
+
+                        $('#fullchart').html('');
+                        element = $('#' + $(this).attr('rel'));
+                        $.fancybox(
+                            $('#full-wrap').html(),
+                            {
+                                'transitionIn': 'fade',
+                                'transitionOut': 'elastic',
+                                'showCloseButton': true,
+                                'fitToView': false,
+                                'scrolling': 'no',
+                                'width': '100%',
+                                'height': '100%',
+                                afterShow: function () {
+
+
+                                    $('#full-wrap').html('');
+                                    renderBox = 'fullchart';
+                                    exporting = true;
+                                    show_data_label = true;
+                                    action_zoom = true;
+                                    dynamicGraph($scope.chart_type, renderBox, graph_title, category, series, amount, '', (step - 5), action_zoom);
+                                },
+                                afterClose: function () {
+                                    $('#full-wrap').html('<div id="fullchart"></div>');
+                                }
+                            }
+                        );
+                    }
+                });
+
+                this.loading_graph = false;
+                this.loading = false;
+                this.$refs.tableHandson.hotInstance.loadData(this.hotSettings.data);
+                setTimeout(() => {
+                    this.$refs.tableHandson.hotInstance.render();
+                }, 50)
+            },
+            reGenGraph() {
+                this.renderGraph(this.chart_type);
+            },
+            async fnc_getViewID() {
+                let url = '/api/3/action/resource_view_list?id=' + this.cur_meta.id;
+                try {
+                    const fetch_res = await fetch(url);
+                    const res = await fetch_res.json();
+                    if(res.success && typeof res.result[0] != 'undefined') {
+                        this.cur_meta.view_id = res.result[0].id;
+                    }
+                } catch (e) {
+                    console.log('e', e);
+                }
+            },
+            async fnc_getAnalyse(id) {
+                this.loading = true;
+                let url = '/api/3/action/datastore_search?resource_id=' + id;
+                try {
+                    const fetch_res = await fetch(url);
+                    const res = await fetch_res.json();
+                    if(res.success) {
+                        this.cur_meta.data = res.result;
+                        let result = [];
+                        let columnName = [];
+                        res.result.fields.map((ele, index) => {
+                            columnName.push(ele.id)
+                        });
+                        res.result.records.map((ele, index) => {
+                            let data_record = [];
+                            Object.keys(ele).map((k, v) => {
+                                data_record.push(ele[k]);
+                            });
+                            result.push(data_record);
+                        })
+                        this.hotSettings.data = result;
+                        this.hotSettings.colHeaders = columnName;
+                        
+                    }
+
+                    this.cur_meta.is_analyse = true;
+                    this.fnc_getViewID();
+                    this.renderGraph();
+                    this.loading = false;
+                } catch (e) {
+                    console.log('e', e);
+                    this.cur_meta.is_analyse = true;
+                    this.loading = false;
+
+                }
+            },
+            resetObjective() {
+                this.download_objective.user_email.value = this.user_email;
+                this.download_objective.user_email.valid = true;
+                this.download_objective.user_email.msg = '';
+
+                this.download_objective.objective.value = '1';
+                this.download_objective.objective.valid = true;
+                this.download_objective.objective.msg = '';
+
+                this.download_objective.objective_des.value = '';
+                this.download_objective.objective_des.valid = true;
+                this.download_objective.objective_des.msg = '';
+
+                this.download_objective.captcha = '';
+            },
+            showMeta(id) {
+                this.loading = true;
+                let filter = this.metadata.filter((ele) => ele.id == id);
+                if (filter.length > 0) {
+                    filter = toRaw(filter);
+                    this.cur_meta = filter[0];
+                    $('.hoverDownload').removeClass('active');
+                    $('#' + id).addClass('active');
+
+                    if (!this.cur_meta.is_analyse) {
+                        this.fnc_getAnalyse(id);
+                    } else {
+                        // ## render Graph
+                        this.renderGraph();
+                    }
+
+                } else {
+                    this.loading = false; 
+                }
+            },
+            async showMetaWithRows (limit) {
+                this.loading = true;
+                let offset = 0;
+                let id = this.cur_meta.id;
+                let text_search = this.stext;
+                let url = '/api/3/action/datastore_search?resource_id=' + id + '&limit=' + limit + '&offset=' + (offset ) + '&q=' + text_search;
+                try {
+                    const fetch_res = await fetch(url);
+                    const res = await fetch_res.json();
+                    if(res.success) {
+                        this.cur_meta.data = res.result;
+                        let result = [];
+                        let columnName = [];
+                        res.result.fields.map((ele, index) => {
+                            columnName.push(ele.id)
+                        });
+                        res.result.records.map((ele, index) => {
+                            let data_record = [];
+                            Object.keys(ele).map((k, v) => {
+                                data_record.push(ele[k]);
+                            });
+                            result.push(data_record);
+                        })
+
+                        this.hotSettings.data = result;
+                        this.hotSettings.colHeaders = columnName;
+                        
+                    }
+
+                    this.cur_meta.is_analyse = true;
+                    this.renderGraph(this.chart_type);
+                    $('.filter-limit .row-select').removeClass('active')
+                    setTimeout(() => {
+                        $('#row-' + limit).addClass('active')
+                    }, 50);
+                    this.loading = false;
+                } catch (e) {
+                    console.log('e', e);
+                    this.cur_meta.is_analyse = true;
+                    this.loading = false;
+                }
+            },
+            async showMetaWithOffset () {
+                this.loading = true;
+                let id = this.cur_meta.id;
+
+                // calculate paging
+                if (this.paging.start < 1) this.paging.start = 1;
+                if (this.paging.end < this.paging.start) this.paging.end = this.paging.start + 1;
+                if (this.paging.end > this.cur_meta.total) this.paging.end = this.cur_meta.total;
+
+
+                let start = this.paging.start;
+                let end = this.paging.end;
+
+                let offset = start;
+                let limit = (end - start) + 1;
+
+                let text_search = this.stext;
+
+
+                // api
+                let url = '/api/3/action/datastore_search?resource_id=' + id + '&limit=' + limit + '&offset=' + (offset - 1) + '&q=' + text_search;
+                try {
+                    const fetch_res = await fetch(url);
+                    const res = await fetch_res.json();
+                    if(res.success) {
+                        this.cur_meta.data = res.result;
+                        let result = [];
+                        let columnName = [];
+                        res.result.fields.map((ele, index) => {
+                            columnName.push(ele.id)
+                        });
+                        res.result.records.map((ele, index) => {
+                            let data_record = [];
+                            Object.keys(ele).map((k, v) => {
+                                data_record.push(ele[k]);
+                            });
+                            result.push(data_record);
+                        })
+
+                        this.hotSettings.data = result;
+                        this.hotSettings.colHeaders = columnName;
+                        
+                    }
+
+                    this.renderGraph(this.chart_type);
+                    this.loading = false;
+                } catch (e) {
+                    console.log('e', e);
+                    this.cur_meta.is_analyse = true;
+                    this.loading = false;
+                }
+            }
+        },
+        created() {
+            this.getBaseURL();
+            let resource_id = this.findGetParameter('id');
+            this.is_fullscreen = this.findGetParameter('is_fullscreen');
+
+            if (this.is_fullscreen !== null && this.is_fullscreen == 1) {
+                this.showFullScreen();
+                this.is_fullscreen = true;
+            }
+
+            // หากส่งค่า get id มา
+            if (resource_id != null) {
+                this.showMeta(resource_id);
+
+            } else if (this.metadata.length > 0) {
+                let raw_metdata = toRaw(this.metadata);
+                this.showMeta(raw_metdata[0].id);
+            }
+
+            this.resetObjective();
+        },
+        components: {
+            HotTable: Handsontable.vue.HotTable,
+        }
+    })
+  
+    app.config.compilerOptions.delimiters = ['${', '}']
+    app.mount('#appVue')
+</script>
+
+
+</head>
+<body data-site-root="https://data.go.th/"
+      data-locale-root="https://data.go.th/">
+
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            appId: '391609758919649',
+            autoLogAppEvents: true,
+            xfbml: true,
+            version: 'v18.0'
+        });
+
+        let tm = null
+
+        FB.Event.subscribe('comment.create', function (response) {
+            if (tm === null) {
+                tm = setTimeout(async function () {
+
+                    const tk = Math.random() * 1000000;
+
+                    const d = new Date();
+                    d.setTime(d.getTime() + 5000);
+                    const expires = "expires=" + d.toUTCString();
+                    document.cookie = "sbs_fb=" + tk + ";" + expires + ";path=/;SameSite=Strict";
+
+                    const sendData = {
+                        commentID: response.commentID,
+                        href: response.href,
+                        message: response.message,
+                        token: tk
+                    }
+
+                    if (response.hasOwnProperty('parentCommentID')) sendData.push({parentCommentID: response.parentCommentID})
+
+                    const csrfValue = document.querySelector('meta[name=_csrf_token]').getAttribute('content');
+                    await fetch("/api/3/action/sbs_comment_update_message", {
+                        method: "POST",
+                        body: JSON.stringify(sendData),
+                        headers: {
+                            "Content-type": "application/json; charset=UTF-8",
+                            "X-CSRFToken": csrfValue
+                        }
+                    });
+                    tm = null;
+
+                }, 100);
+            }
+
+        });
+
+        FB.Event.subscribe('comment.remove', function (response) {
+            if (tm === null) {
+                tm = setTimeout(async function () {
+                    const tk = Math.random();
+                    const d = new Date();
+                    d.setTime(d.getTime() + 5000);
+                    const expires = "expires=" + d.toUTCString();
+                    document.cookie = "sbs_fb=" + tk + ";" + expires + ";path=/;SameSite=Strict";
+
+                    const sendData = {
+                        commentID: response.commentID,
+                        token: tk
+                    }
+
+                    const csrfValue = document.querySelector('meta[name=_csrf_token]').getAttribute('content');
+                    await fetch("/api/3/action/sbs_comment_delete_message", {
+                        method: "POST",
+                        body: JSON.stringify(sendData),
+                        headers: {
+                            "Content-type": "application/json; charset=UTF-8",
+                            "X-CSRFToken": csrfValue
+                        }
+                    });
+
+                    tm = null;
+
+                }, 100);
+            }
+        });
+
+    };
+</script>
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v18.0&appId=391609758919649"
+        nonce="sxepahnq"></script>
+
+
+<main>
+    
+    <header>
+    <div class="container">
+        <div class="row align-items-end">
+            <div class="col-12 col-lg-3 col-xl-2">
+                <div class="box-logo">
+                  <a href="/"
+                    ><img
+                      src="/dga/images/web/logo.png"
+                      class="img-fluid header-logo"
+                      alt="logo"
+                  /></a>
+                </div>
+            </div>
+            <div class="col-12 col-lg-5 col-xl-6 text-white fs-4 pb-3">
+                <!-- ดำเนินงานโดย สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) -->
+            </div>
+            <div class="col-12 col-lg-4 col-xl-4 fs-6 pb-3 d-flex justify-content-end">
+                <a href="https://opend.data.go.th" class="text-white btn rounded-5 btn-blue font-14">สำหรับนักพัฒนา</a>
+
+                
+                
+                    
+            <a href="/opend" class="text-white btn rounded-5 btn-blue font-14 ms-3">
+    สำหรับเจ้าหน้าที่หน่วยงานรัฐ
+</a>
+
+                
+                
+
+            </div>
+        </div>
+    </div>
+    <!--Menu-->
+    <div class="box-menu">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg py-3 pb-lg-0">
+                <div class="container-fluid">
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNavDropdown"
+                        aria-controls="navbarNavDropdown"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a class="nav-link " aria-current="page" href="/">
+                                    <img
+                                        src="/dga/images/icons/menu/1.home.png"
+                                        alt="หน้าหลัก"
+                                        class="img-fluid"
+                                    />
+                                    หน้าหลัก
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="/dataset/">
+                                    <img
+                                        src="/dga/images/icons/menu/2.Search.png"
+                                        alt="ชุดข้อมูล"
+                                        class="img-fluid"
+                                    />
+                                    ชุดข้อมูล
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="/organization/">
+                                    <img
+                                        src="/dga/images/icons/menu/3.Organization.png"
+                                        alt="องค์กร"
+                                        class="img-fluid"
+                                    />
+                                    องค์กร
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link " href="/group/">
+                                    <img
+                                        src="/dga/images/icons/menu/4.Group.png"
+                                        alt="กลุ่มชุดข้อมูล"
+                                        class="img-fluid"
+                                    />
+                                    กลุ่มชุดข้อมูล
+                                </a>
+                            </li>
+                            
+                                <li class="nav-item">
+                                    <a class="nav-link " href="/pages">
+                                        <img
+                                            src="/dga/images/icons/menu/5.News.png"
+                                            alt="เอกสารเผยแพร่"
+                                            class="img-fluid"
+                                        />
+                                        เอกสารเผยแพร่
+                                    </a>
+                                </li>
+
+
+
+                                <li class="nav-item">
+                                    <a class="nav-link " href="/blog">
+                                        <img
+                                            src="/dga/images/icons/menu/6.Anoucement.png"
+                                            alt="ตัวอย่างการใช้ข้อมูล"
+                                            class="img-fluid"
+                                        />
+                                        ตัวอย่างการใช้ข้อมูล
+                                    </a>
+                                </li>
+                            
+
+                            
+                                <li class="nav-item">
+                                    <a class="nav-link " href="/request">
+                                        <img
+                                            src="/dga/images/icons/menu/7.Data.png"
+                                            alt="ร้องขอชุดข้อมูล"
+                                            class="img-fluid"
+                                        />
+                                        ร้องขอชุดข้อมูล
+                                    </a>
+                                </li>
+                            
+
+
+                            
+                                <li class="nav-item">
+                                    <a class="nav-link " href="/pages/about-open-data">
+                                        <img
+                                            src="/dga/images/icons/menu/8.Q&A.png"
+                                            alt="ถาม-ตอบ"
+                                            class="img-fluid"
+                                        />
+                                        ถาม-ตอบ
+                                    </a>
+                                </li>
+                            
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+  <!--End menu-->
+</header>
+    
+
+<!--breadcrumb-->
+<div class="block-breadcrumb">
+    <div class="container">
+        <div class="row">
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb m-0">
+                    <li class="breadcrumb-item">
+                        <a href="/">หน้าหลัก</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a href="/dataset/">ชุดข้อมูล</a>
+                    </li>
+
+                    
+                    
+                    
+                    
+
+                    
+                    <li class="breadcrumb-item">
+                        <a href="/organization/bangkok_metropolitan_administration">
+                            กรุงเทพมหานคร
+                        </a>
+                    </li>
+                    
+
+                    <li class="breadcrumb-item active" aria-current="page">
+                        
+                        ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร
+                    </li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<!--End breadcrumb-->
+
+
+
+<!--Content-->
+<div class="block-content">
+    <div class="block-content-bg">
+        <div class="container">
+            <div class="row">
+                <div class="py-2 top-link mb-3">
+                    
+
+                    <a href="/dataset/priv_hos"
+                       class="btn active">
+                        ชุดข้อมูล
+                    </a>
+                    <a href="/dataset/groups/priv_hos"
+                       class="btn ">
+                        กลุ่มชุดข้อมูล
+                    </a>
+                    
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                
+<div class="col-md-12">
+    <h1 class="dataset-title">
+        ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร
+
+        
+
+        
+
+    </h1>
+
+    <div class="row">
+        <div class="col-md-12">
+            
+
+            
+        </div>
+    </div>
+
+    
+    
+    <span class="fs-5">
+        องค์กร : กรุงเทพมหานคร
+    </span>
+    
+
+    
+
+<div class="my-3 col-3">
+    
+</div>
+
+
+
+
+    
+    <div class="box-yellow my-3">
+        <p>ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร</p>
+    </div>
+    
+
+    <div id="appVue" v-cloak>
+        <!--section1-->
+        <div class="section container border-bottom-section">
+            <!--left-->
+            <div class="row">
+                <div class="section-left col-12 col-md-5 col-lg-4 col-xl-3 ps-0 pe-0">
+                    <ul class="list-unstyled m-0 dataset-resource-list">
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li @click="showMeta('f50b15fd-96c0-4c50-858f-89243b6937fb'); cur_meta.is_analyse = false;">
+    <a  id="f50b15fd-96c0-4c50-858f-89243b6937fb" class="cursor-pointer" :class="{ 'active': cur_meta.id == 'f50b15fd-96c0-4c50-858f-89243b6937fb'}">
+        <div class="hoverDownload">
+
+            <span class="block-img-icon">
+                <img src="/sbs/images/icon_file2/icon-zip.png"
+                     style="width: 30px"
+                     onerror="this.src='/sbs/images/icon_file2/icon-data.png'"
+                     alt="ICON DATA FILE"/>
+            </span>
+
+            <span class="resource-title">
+                All resource data
+            </span>
+
+        </div>
+
+        
+            <div class="block-tracking resource-title">
+                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                18 downloads
+            </div>
+        
+    </a>
+
+
+</li>
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li @click="showMeta('5eea0ffb-5701-4ebe-99a6-4942887d606c'); cur_meta.is_analyse = false;">
+    <a  id="5eea0ffb-5701-4ebe-99a6-4942887d606c" class="cursor-pointer" :class="{ 'active': cur_meta.id == '5eea0ffb-5701-4ebe-99a6-4942887d606c'}">
+        <div class="hoverDownload">
+
+            <span class="block-img-icon">
+                <img src="/sbs/images/icon_file2/icon-shp.png"
+                     style="width: 30px"
+                     onerror="this.src='/sbs/images/icon_file2/icon-data.png'"
+                     alt="ICON DATA FILE"/>
+            </span>
+
+            <span class="resource-title">
+                ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร
+            </span>
+
+        </div>
+
+        
+            <div class="block-tracking resource-title">
+                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                330 downloads
+            </div>
+        
+    </a>
+
+
+</li>
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li @click="showMeta('b3651fb9-9daf-4930-ae7a-7a7ee6b000d8'); cur_meta.is_analyse = false;">
+    <a  id="b3651fb9-9daf-4930-ae7a-7a7ee6b000d8" class="cursor-pointer" :class="{ 'active': cur_meta.id == 'b3651fb9-9daf-4930-ae7a-7a7ee6b000d8'}">
+        <div class="hoverDownload">
+
+            <span class="block-img-icon">
+                <img src="/sbs/images/icon_file2/icon-xml.png"
+                     style="width: 30px"
+                     onerror="this.src='/sbs/images/icon_file2/icon-data.png'"
+                     alt="ICON DATA FILE"/>
+            </span>
+
+            <span class="resource-title">
+                ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร (KML)
+            </span>
+
+        </div>
+
+        
+            <div class="block-tracking resource-title">
+                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                148 downloads
+            </div>
+        
+    </a>
+
+
+</li>
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li @click="showMeta('176c75e6-80a7-4658-ab4c-63fc97b38fcc'); cur_meta.is_analyse = false;">
+    <a  id="176c75e6-80a7-4658-ab4c-63fc97b38fcc" class="cursor-pointer" :class="{ 'active': cur_meta.id == '176c75e6-80a7-4658-ab4c-63fc97b38fcc'}">
+        <div class="hoverDownload">
+
+            <span class="block-img-icon">
+                <img src="/sbs/images/icon_file2/icon-xml.png"
+                     style="width: 30px"
+                     onerror="this.src='/sbs/images/icon_file2/icon-data.png'"
+                     alt="ICON DATA FILE"/>
+            </span>
+
+            <span class="resource-title">
+                ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร (GML)
+            </span>
+
+        </div>
+
+        
+            <div class="block-tracking resource-title">
+                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                91 downloads
+            </div>
+        
+    </a>
+
+
+</li>
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li @click="showMeta('d132638d-a243-4829-aed8-10ed4fad917f'); cur_meta.is_analyse = false;">
+    <a  id="d132638d-a243-4829-aed8-10ed4fad917f" class="cursor-pointer" :class="{ 'active': cur_meta.id == 'd132638d-a243-4829-aed8-10ed4fad917f'}">
+        <div class="hoverDownload">
+
+            <span class="block-img-icon">
+                <img src="/sbs/images/icon_file2/icon-json_grade-a-plus.png"
+                     style="width: 30px"
+                     onerror="this.src='/sbs/images/icon_file2/icon-data.png'"
+                     alt="ICON DATA FILE"/>
+            </span>
+
+            <span class="resource-title">
+                ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร (JSON)
+            </span>
+
+        </div>
+
+        
+            <div class="block-tracking resource-title">
+                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                296 downloads
+            </div>
+        
+    </a>
+
+
+</li>
+                        
+                        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<li @click="showMeta('368fb096-2b2f-4993-9624-51c97e2904f5'); cur_meta.is_analyse = false;">
+    <a  id="368fb096-2b2f-4993-9624-51c97e2904f5" class="cursor-pointer" :class="{ 'active': cur_meta.id == '368fb096-2b2f-4993-9624-51c97e2904f5'}">
+        <div class="hoverDownload">
+
+            <span class="block-img-icon">
+                <img src="/sbs/images/icon_file2/icon-pdf.png"
+                     style="width: 30px"
+                     onerror="this.src='/sbs/images/icon_file2/icon-data.png'"
+                     alt="ICON DATA FILE"/>
+            </span>
+
+            <span class="resource-title">
+                พจนานุกรมข้อมูล
+            </span>
+
+        </div>
+
+        
+            <div class="block-tracking resource-title">
+                <span class="fa fa-line-chart" aria-hidden="true"></span>
+                148 downloads
+            </div>
+        
+    </a>
+
+
+</li>
+                        
+                    </ul>
+                </div>
+                <!--End left-->
+                <div class="section-right col-12 col-md-7 col-lg-8 col-xl-9">
+                    <!--top-->
+                    <div class="section-right-top">
+                        <div class="row">
+                            <div class="col-12 col-md-3 col-lg-3 d-flex align-items-center">
+                                <label class="me-3"
+                                       v-show="cur_meta.datastore_active && cur_meta.data.fields">
+                                    มุมมอง
+                                </label>
+                                <a @click="analyse_view = 'grid'"
+                                   v-show="cur_meta.datastore_active && cur_meta.data.fields"
+                                   class="me-2 cursor-pointer">
+                                    <img src="/dga/images/icons/v1.png" alt="ICON GRID">
+                                </a>
+                                <a @click="analyse_view = 'chart';reGenGraph();"
+                                   v-show="cur_meta.datastore_active && cur_meta.data.fields"
+                                   class="cursor-pointer">
+                                    <img src="/dga/images/icons/v2.png" alt="ICON CHART">
+                                </a>
+                            </div>
+                            <div class="col-12 col-md-9 col-lg-9 justify-content-end d-flex flex-wrap">
+
+                                <a href=""
+                                   class="btn btn-primary rounded-5 me-2 mt-3 mt-md-0"
+                                   v-show="cur_meta.datastore_active && cur_meta.data.fields"
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#sbs-api"
+                                   @click="getApi2(cur_meta.api_info_url)"
+                                   title="Basic Data API">
+
+                                    <img src="/dga/images/icons/b1.png" alt="ICON API" class="me-2">
+                                    Data API
+
+                                </a>
+
+                                
+                                
+                                
+                                <a v-show="cur_meta.datastore_active && cur_meta.data.fields"
+                                   v-bind:href="'https://opend.data.go.th/playground/data.go.th/ckan/' + cur_meta.id"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="btn btn-primary rounded-5 me-2 mt-3 mt-md-0">
+                                    <img src="/dga/images/icons/b2.png" alt="ICON Visualization" class="me-2">
+                                    Visualization
+                                </a>
+                                
+
+
+                                <a 
+                                   href=''
+                                   @click="genIframe()"
+                                   data-bs-toggle="modal"
+                                   data-bs-target="#embed-296f32c6-8c7e-4a54-ade0-0913d35d3168"
+                                   :data-module-url="current_url + '?id=' + cur_meta.id + '&is_fullscreen=1'"
+                                   class="btn btn-primary rounded-5 me-2 mt-3 mt-md-0 btn_embed">
+                                    <img src="/dga/images/icons/b3.png" alt="ICON Embed" class="me-2">
+                                    ฝังตัว
+                                </a>
+
+                                <a href="/dataset/priv_hos?is_fullscreen=1"
+                                   target="_blank"
+                                   rel="noopener noreferrer"
+                                   class="btn btn-primary rounded-5 mt-3 mt-md-0">
+                                    <img src="/dga/images/icons/b4.png" alt="ICON Fullscreen" class="me-2">
+                                    แสดงผลเต็มหน้าจอ
+                                </a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <!--End top-->
+                    <!--top-detail-->
+                    <div class="top-detail">
+                        <h3 class="resource-info">ข้อมูลทรัพยากร : ${cur_meta.name}</h3>
+                        <div class="clearfix"></div>
+                        <a v-bind:href="cur_meta.url"
+                           download
+                           v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.ori !== 'undefined' && typeof cur_meta.ori.url_type !== 'undefined' && cur_meta.ori.url_type == 'upload'"
+                           @click="trackDownload(cur_meta.url)"
+                           class='btn btn-warning btn-sm cursor-pointer'>
+                            <i class="fas fa-download"></i>
+                            ดาวน์โหลด
+                        </a>
+
+                        <a v-bind:href="cur_meta.url"
+                           target="_blank"
+                           class="btn btn-warning btn-sm cursor-pointer"
+                           @click="trackDownload(cur_meta.url)"
+                           v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.ori !== 'undefined' && typeof cur_meta.ori.url_type !== 'undefined' && cur_meta.ori.url_type != 'upload'">
+                            <i class="fas fa-link"></i>
+                            ไปสู่ทรัพยากร
+                        </a>
+
+                        <div class="top-detail-content">
+                            <table>
+                                <tr v-show="cur_meta.last_modified !== undefined && cur_meta.last_modified.trim() !=''">
+                                    <td>วันที่ปรับปรุงไฟล์/ลิงก์ข้อมูลใน catalog</td>
+                                    <td class="px-2">${cur_meta.last_modified}</td>
+                                </tr>
+                                <tr>
+                                    <td>วันที่สร้างไฟล์/ลิงก์ข้อมูลใน catalog</td>
+                                    <td class="px-2">${cur_meta.created}</td>
+                                </tr>
+                                <tr v-show="cur_meta.mimetype !== undefined && cur_meta.mimetype.trim() !=''">
+                                    <td>รูปแบบของไฟล์ชุดข้อมูล</td>
+                                    <td class="px-2">${cur_meta.mimetype}</td>
+                                </tr>
+
+                                <tr>
+                                    <td>รหัสทรัพยากรข้อมูล</td>
+                                    <td class="px-2">${cur_meta.id}</td>
+                                </tr>
+              <tr v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.ori !== 'undefined' && typeof cur_meta.ori.description !== 'undefined' && cur_meta.ori.description.toString().trim() !=''">
+                <td>รายละเอียด</td>
+                <td class="px-2">
+                    
+                        <span>${cur_meta.ori.description}</span>
+                    
+                </td>
+              </tr>
+              
+              <tr v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.ori !== 'undefined' && typeof cur_meta.ori.resource_accessible_condition !== 'undefined' && cur_meta.ori.resource_accessible_condition.toString().trim() !=''">
+                <td>เงื่อนไขในการเข้าถึงข้อมูล</td>
+                <td class="px-2">
+                    
+                        <span>${cur_meta.ori.resource_accessible_condition}</span>
+                    
+                </td>
+              </tr>
+              
+              <tr v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.ori !== 'undefined' && typeof cur_meta.ori.resource_data_collect !== 'undefined' && cur_meta.ori.resource_data_collect.toString().trim() !=''">
+                <td>หน่วยที่ย่อยที่สุดของการจัดเก็บข้อมูล</td>
+                <td class="px-2">
+                    
+                        <span>${cur_meta.ori.resource_data_collect}</span>
+                    
+                </td>
+              </tr>
+              
+              <tr v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.ori !== 'undefined' && typeof cur_meta.ori.resource_data_collect_other !== 'undefined' && cur_meta.ori.resource_data_collect_other.toString().trim() !=''">
+                <td></td>
+                <td class="px-2">
+                    
+                        <span>${cur_meta.ori.resource_data_collect_other}</span>
+                    
+                </td>
+              </tr>
+              
+              <tr v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.ori !== 'undefined' && typeof cur_meta.ori.resource_created_date !== 'undefined' && cur_meta.ori.resource_created_date.toString().trim() !=''">
+                <td>วันที่เริ่มต้นสร้าง</td>
+                <td class="px-2">
+                    
+                        <span>${cur_meta.ori.resource_created_date}</span>
+                    
+                </td>
+              </tr>
+              
+              <tr v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.ori !== 'undefined' && typeof cur_meta.ori.resource_last_updated_date !== 'undefined' && cur_meta.ori.resource_last_updated_date.toString().trim() !=''">
+                <td>วันที่ปรับปรุงเนื้อหาข้อมูลล่าสุด</td>
+                <td class="px-2">
+                    
+                        <span>${cur_meta.ori.resource_last_updated_date}</span>
+                    
+                </td>
+              </tr>
+              </table>
+                        </div>
+                    </div>
+                    <!--End top-detail-->
+                    <!--section-search-detail-->
+
+                    <div class="col-md-12 my-3" v-show="loading">
+                        <div class="loader"></div>
+                    </div>
+
+                    <div class="col-md-12" v-if="!loading && typeof cur_meta !== 'undefined' && typeof cur_meta.data !== 'undefined' && !cur_meta.data.fields">
+                        <div class="alert alert-warning">
+                            Data source cannot be displayed.
+                        </div>
+                    </div>
+                    <div v-show="!loading && typeof cur_meta !== 'undefined' && typeof cur_meta.data !== 'undefined' && cur_meta.data.fields">
+                        <div class="section-search-detail d-flex justify-content-center">
+                            <form class="text-center col-12 col-md-6 col-lg-4" v-on:submit.prevent="showMetaWithOffset()">
+                                <div class="mb-3 d-flex justify-content-center">
+                                    <input type="text"
+                                           class="form-control rounded-5 text-center"
+                                           placeholder="ค้นหาข้อมูล"
+                                           v-model="stext"
+                                           aria-label="ค้นหาข้อมูล">
+                                    <button class="btn btn-green-blue text-white ms-3 border-0 rounded-5"
+                                            @click="showMetaWithOffset()"
+                                            type="button">
+                                        ค้นหา
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="section-search-detail-result d-flex justify-content-between flex-wrap">
+                            <div>
+                                ข้อมูลทั้งหมด 
+                                <span v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.data !== 'undefined' && cur_meta.data.total > 0">   
+                                    ${cur_meta.data.total.toLocaleString()}
+                                </span>
+                                <span v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.data !== 'undefined' && !cur_meta.data.total">   
+                                    0
+                                </span>
+                                รายการ
+                            </div>
+                            <div class="filter-limit" v-if="typeof cur_meta !== 'undefined' && typeof cur_meta.data !== 'undefined' && cur_meta.data.total > 0">
+                                <label>แสดงข้อมูล</label>&nbsp;<a id="row-100" @click="showMetaWithRows(100)"
+                                   class="row-select rounded-5 px-3 active cursor-pointer">100</a>&nbsp;<a id="row-500" @click="showMetaWithRows(500)"
+                                   class="row-select rounded-5 px-3 cursor-pointer">500</a>&nbsp;<a id="row-1000" @click="showMetaWithRows(1000)"
+                                   class="row-select rounded-5 px-3 cursor-pointer">1,000</a>&nbsp;รายการ
+                            </div>
+
+                        </div>
+                        <div class="section-result" v-show="analyse_view == 'grid' && typeof cur_meta !== 'undefined' && typeof cur_meta.data !== 'undefined' && cur_meta.data.total > 0">
+                            <hot-table :settings="hotSettings" ref="tableHandson"></hot-table>
+                        </div>
+
+                        <div class="section-result" v-show="analyse_view == 'chart'">
+                            <div class="col-md-12" v-show="loading_graph">
+                                <div class="loader"></div>
+                            </div>
+
+                            <div class="col-md-12 mt-3">
+                                <div style="padding: 10px">
+                                    <div class="col-md-12">
+                                        <form >
+                                            <div class="mb-3">
+                                                <label class="" for="group_type">Group Type :</label>
+                                                <select name="group_type"
+                                                        id="group_type"
+                                                        class="form-control"
+                                                        v-model="group_type_selected"
+                                                        v-on:change="renderGraph(chart_type)">
+                                                        <option v-for="value in group_type" :value="value">
+                                                            ${ value }
+                                                        </option>
+                                                </select>
+                                            </div>
+
+                                            <div class="form-group mb-3">
+                                                <label class="">ประเภท : </label> <a class="btn btn-info btn-xs btn_graph" title="Line"
+                                                   @click="renderGraph('line')">
+                                                    <i class="fa fa-line-chart"></i> Line
+                                                </a> <a class="btn btn-info btn-xs btn_graph" title="Area"
+                                                   @click="renderGraph('area')">
+                                                    <i class="fa fa-area-chart"></i> Area
+                                                </a> <a class="btn btn-info btn-xs btn_graph" title="Bar"
+                                                   @click="renderGraph('bar')">
+                                                    <i class="fa fa-bar-chart"></i> Bar
+                                                </a> <a class="btn btn-info btn-xs btn_graph" title="Column"
+                                                   @click="renderGraph('column')">
+                                                    <i class="fa fa-bar-chart"></i> Column
+                                                </a> <a v-show="series.length == 1"
+                                                   class="btn btn-info btn-xs btn_graph" title="Pie"
+                                                   @click="renderGraph('pie')">
+                                                    <i class="fa fa-pie-chart"></i> Pie
+                                                </a> <a v-show="series.length == 1"
+                                                   class="btn btn-info btn-xs btn_graph" title="Donut"
+                                                   @click="renderGraph('donut')">
+                                                    <i class="fa fa-pie-chart"></i> Donut
+                                                </a>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div id="graph1" class="" v-show="!loading_graph"></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <!--End section1-->
+        <!--Section2-->
+        <div class="section2">
+            <div>
+                <h4>ข้อมูลเพิ่มเติม</h4>
+            </div>
+            <div class="detail-table">
+                <table>
+                    
+                    <tr>
+                        <th>รหัสชุดข้อมูล</th>
+                        <td>296f32c6-8c7e-4a54-ade0-0913d35d3168</td>
+                    </tr>
+                    
+
+                    
+                    <tr>
+                        <th>กลุ่มชุดข้อมูล</th>
+                        <td>สาธารณสุข</td>
+                    </tr>
+                    
+
+                    
+                    <tr>
+                        <th>แท็ค</th>
+                        <td>
+                            <div class="d-flex flex-wrap">
+                                
+                                <span class="tag">กรุงเทพมหานคร</span>
+                                
+                                <span class="tag">ที่ตั้ง</span>
+                                
+                                <span class="tag">โรงพยาบาล</span>
+                                
+
+                            </div>
+                        </td>
+                    </tr>
+                    
+
+                    <tr>
+                        <th>ระดับในการเข้าถึงข้อมูล</th>
+                        <td>สาธารณะ</td>
+                    </tr>
+
+                    
+    
+    <tr>
+        <td>วันที่สร้าง metadata</td>
+        <td>
+            
+                13 สิงหาคม 2563
+            
+        </td>
+    </tr>
+    
+
+    
+    <tr>
+        <td>วันที่ปรับปรุง metadata</td>
+        <td>
+            
+                31 ตุลาคม 2564
+            
+        </td>
+    </tr>
+    
+
+          <tr>
+            <th>ประเภทชุดข้อมูล</th>
+            <td >ข้อมูลระเบียน</td>
+          </tr>
+          
+          <tr>
+            <th>ชื่อฝ่ายงานสำหรับติดต่อ</th>
+            <td  property="dc:contributor">กองสารสนเทศภูมิศาสตร์ สำนักยุทธศาสตร์และประเมินผล</td>
+          </tr>
+          
+          <tr>
+            <th>อีเมลสำหรับติดต่อ</th>
+            <td  property="dc:contributor"><a href=mailto:n_tchanan@bangkok.go.th>n_tchanan@bangkok.go.th</a></td>
+          </tr>
+          
+          <tr>
+            <th>วัตถุประสงค์</th>
+            <td >ไม่ทราบ</td>
+          </tr>
+          
+          <tr>
+            <th>หน่วยความถี่ของการปรับปรุงข้อมูล</th>
+            <td >ปี</td>
+          </tr>
+          
+          <tr>
+            <th>ค่าความถี่ของการปรับปรุงข้อมูล (ความถี่น้อยที่สุด)</th>
+            <td >1</td>
+          </tr>
+          
+          <tr>
+            <th>ขอบเขตเชิงภูมิศาสตร์หรือเชิงพื้นที่</th>
+            <td >ประเทศ</td>
+          </tr>
+          
+          <tr>
+            <th>แหล่งที่มา</th>
+            <td >ไม่ทราบ</td>
+          </tr>
+          
+          <tr>
+            <th>รูปแบบการเก็บข้อมูล</th>
+            <td >ไม่ทราบ</td>
+          </tr>
+          
+          <tr>
+            <th>หมวดหมู่ข้อมูลตามธรรมาภิบาลข้อมูลภาครัฐ</th>
+            <td >ข้อมูลสาธารณะ</td>
+          </tr>
+          
+          <tr>
+            <th>สัญญาอนุญาต</th>
+            <td >Creative Commons Attributions</td>
+          </tr>
+          
+          <tr>
+            <th>ภาษาที่ใช้</th>
+            <td >ไทย</td>
+          </tr>
+          <tr>
+                        <th>ชุดข้อมูลที่มีคุณค่าสูง</th>
+                        <td>ไม่แสดง</td>
+                    </tr>
+
+                    
+
+                </table>
+            </div>
+        </div>
+        <!--End section2-->
+
+        
+
+        
+
+<div class="hide_fullscreen">
+    <div class="col-md-12 mt-5">
+        <div class="fb-comments" data-href="https://data.go.th/dataset/priv_hos?authuser=0" data-width="100%"
+             data-numposts="5"></div>
+    </div>
+</div>
+
+
+        
+        
+        <div class="rows">
+            <div class="box-sample-data">
+                <h2 class="mb-4">ตัวอย่างการใช้ข้อมูล</h2>
+                <div class="slide-sample">
+                    <ul class="owl-carousel ms-0 px-5">
+                        
+
+                        
+                        
+
+                        <li data-slide-index="1">
+                            <img src="https://data.go.th/uploads/page_images/2024-10-15-030714.555203Screenshot-2024-10-15-100257.png"/>
+                            <a href="/blog?page=elderly-happiness" class="line-clamp-2">
+                                เปิดสถิติระดับความสุขของผู้สูงอายุในประเทศไทย
+                            </a>
+                            <span>
+                                15 ตุลาคม 2567
+                            </span>
+                        </li>
+                        
+
+                        
+                        
+
+                        <li data-slide-index="2">
+                            <img src="https://data.go.th/uploads/page_images/2024-10-15-024954.0026034626574238699039485763378888577909389475774n.jpg"/>
+                            <a href="/blog?page=aquaculture" class="line-clamp-2">
+                                ปริมาณและมูลค่าผลผลิตสัตว์น้ำจากการเพาะเลี้ยง
+                            </a>
+                            <span>
+                                15 ตุลาคม 2567
+                            </span>
+                        </li>
+                        
+
+                        
+                        
+
+                        <li data-slide-index="3">
+                            <img src="https://data.go.th/uploads/page_images/2024-09-05-084215.949369Team-05.jpg"/>
+                            <a href="/blog?page=fact-checking-digidatacampseason3" class="line-clamp-2">
+                                ทีมวิภาว่าดี - Fact Checking ตรวจข่าวปลอม คัดกรองข่าวจริง #DIGIDataCampSeason3
+                            </a>
+                            <span>
+                                5 กันยายน 2567
+                            </span>
+                        </li>
+                        
+
+                        
+                        
+
+                        <li data-slide-index="4">
+                            <img src="https://data.go.th/uploads/page_images/2024-09-05-095622.073501Team-06.jpg"/>
+                            <a href="/blog?page=we-are-shoo-in-digidatacampseason3" class="line-clamp-2">
+                                ทีม We are Shoo-in - เกษตรกรไทย การเผา และสิ่งเล็กๆ ที่เรียกว่า “ฝุ่น PM 2.5” #DIGIDataCampSeason3
+                            </a>
+                            <span>
+                                5 กันยายน 2567
+                            </span>
+                        </li>
+                        
+
+                        
+                        
+
+                        <li data-slide-index="5">
+                            <img src="https://data.go.th/uploads/page_images/2024-09-05-090034.350283Team-07.jpg"/>
+                            <a href="/blog?page=one-man-stands-alone-digidatacampseason3" class="line-clamp-2">
+                                ทีม One Man Stands Alone - เมื่อประเทศไทยก้าวเข้าสู่ศตวรรษแห่งผู้สูงวัย #DIGIDataCampSeason3
+                            </a>
+                            <span>
+                                5 กันยายน 2567
+                            </span>
+                        </li>
+                        
+
+                        
+                        
+
+                        <li data-slide-index="6">
+                            <img src="https://data.go.th/uploads/page_images/2024-09-05-080850.766003Team-08.jpg"/>
+                            <a href="/blog?page=drought-monitoring-thailand-for-agricultural-economics-digidatacampseason3" class="line-clamp-2">
+                                ทีมเพื่อจิ้มจุ่ม - Drought Monitoring Thailand for Agricultural Economics #DIGIDataCampSeason3
+                            </a>
+                            <span>
+                                5 กันยายน 2567
+                            </span>
+                        </li>
+                        
+
+                        
+                        
+
+                        <li data-slide-index="7">
+                            <img src="https://data.go.th/uploads/page_images/2024-09-05-113022.921602Team-01.jpg"/>
+                            <a href="/blog?page=low-carbon-digidatacampseason3" class="line-clamp-2">
+                                ทีมจึ้งจับใจจู - ขนส่งอย่างไรให้ Low Carbon? #DIGIDataCampSeason3
+                            </a>
+                            <span>
+                                5 กันยายน 2567
+                            </span>
+                        </li>
+                        
+
+                        
+                        
+
+                        <li data-slide-index="8">
+                            <img src="https://data.go.th/uploads/page_images/2024-09-05-065123.750695Team-02.jpg"/>
+                            <a href="/blog?page=rice-situation-digidatacampseason3" class="line-clamp-2">
+                                ทีมเพื่อชาบู - สถานการณ์ข้าวไทยและตลาดโลก #DIGIDataCampSeason3
+                            </a>
+                            <span>
+                                5 กันยายน 2567
+                            </span>
+                        </li>
+                        
+
+                        
+                        
+
+                        <li data-slide-index="9">
+                            <img src="https://data.go.th/uploads/page_images/2024-09-05-070705.412592Team-03.jpg"/>
+                            <a href="/blog?page=si-blitz-digidatacampseason3" class="line-clamp-2">
+                                ทีม SI-blitz (เอสไอ-บลิตส์) - เขาว่าสายตาหลอกกันไม่ได้ #DIGIDataCampSeason3
+                            </a>
+                            <span>
+                                5 กันยายน 2567
+                            </span>
+                        </li>
+                        
+
+                        
+                        
+
+                        <li data-slide-index="10">
+                            <img src="https://data.go.th/uploads/page_images/2024-09-05-071337.608846Team-04.jpg"/>
+                            <a href="/blog?page=burn-to-be-decarbon-for-credit-digidatacampseason3" class="line-clamp-2">
+                                ทีม Burn To Be - Decarbon for credit #DIGIDataCampSeason3
+                            </a>
+                            <span>
+                                5 กันยายน 2567
+                            </span>
+                        </li>
+                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+        
+        
+        
+        
+        <div class="row box-relate mb-4 pe-0">
+            <h2 class="mb-4">ชุดข้อมูลที่เกี่ยวข้อง</h2>
+            
+            
+
+
+
+
+
+<div class="col-12 col-md-6">
+    <div class="card border-0 rounded-0 mb-4 dataset-card">
+        <div class="card-body">
+            <h5 class="card-title">
+                
+                <a class="line-clamp-2" href="/dataset/dataset_11_16">
+                    ปริมาณการนำเข้าน้ำมันสำเร็จรูป
+                </a>
+                
+            </h5>
+            <div class="box-detail">
+                <p class="line-clamp-2">ปริมาณการนำเข้าน้ำมันสำเร็จรูปแยกตามชนิดน้ำมัน</p>
+            </div>
+            <div class="box-date">
+                วันที่ปรับปรุงข้อมูลล่าสุด :
+                
+                16 ตุลาคม 2567
+            </div>
+            
+            
+            <div class="box-download d-flex align-items-center mt-3">
+                <label class="me-2">ไฟล์แนบ :</label>
+                
+                
+                
+                
+                <a href="" class="download-csv" style="margin-right: 3px">
+                    <img src="/sbs/images/icon_file2/icon-csv.png"
+                         class="iconFile"
+                         onerror="this.src='/sbs/images/icon_file2/icon-data.png'"
+                         alt="..">
+                </a>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+            
+            
+
+
+
+
+
+<div class="col-12 col-md-6">
+    <div class="card border-0 rounded-0 mb-4 dataset-card">
+        <div class="card-body">
+            <h5 class="card-title">
+                
+                <a class="line-clamp-2" href="/dataset/dataset_11_351">
+                    การใช้ไฟฟ้าในพื้นที่ กฟน. ตามสาขา
+                </a>
+                
+            </h5>
+            <div class="box-detail">
+                <p class="line-clamp-2">การใช้ไฟฟ้าจำแนกตามสาขา เป็นการให้ข้อมูลรายละเอียดการใช้ไฟฟ้าของผู้ใช้ในสาขาเศรษฐกิจ (Sector) ต่างๆ เช่น ครัวเรือน ธุรกิจ และอุตสาหกรรม เป็นต้น...</p>
+            </div>
+            <div class="box-date">
+                วันที่ปรับปรุงข้อมูลล่าสุด :
+                
+                16 ตุลาคม 2567
+            </div>
+            
+            
+            <div class="box-download d-flex align-items-center mt-3">
+                <label class="me-2">ไฟล์แนบ :</label>
+                
+                
+                
+                
+                <a href="" class="download-csv" style="margin-right: 3px">
+                    <img src="/sbs/images/icon_file2/icon-csv.png"
+                         class="iconFile"
+                         onerror="this.src='/sbs/images/icon_file2/icon-data.png'"
+                         alt="..">
+                </a>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+            
+        </div>
+        
+        
+        
+
+        <div id="sbs-api" tabindex="-1" aria-hidden="true" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content"></div>
+            </div>
+        </div>
+
+        <div id="embed-296f32c6-8c7e-4a54-ade0-0913d35d3168" tabindex="-1" aria-hidden="true" class="modal fade resource-view-embed">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3>ฝังวิวของทรัพยากร</h3>
+                    </div>
+
+                    <div class="modal-body">
+                        <p class="embed-content">You can copy and paste the embed code into a CMS or blog software
+                            that supports raw HTML</p>
+                        <div class="row">
+                            <div class="col-md-6">
+
+                                <div class="form-group control-full">
+                                    <label for="width_embed" class="control-label">Width</label>
+                                    <div class="controls ">
+                                        <input id="width_embed" type="text" name="width" value="768" placeholder=""
+                                               class="form-control" @keyup="genIframe()">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="form-group control-full">
+                                    <label for="height_embed" class="control-label">Height</label>
+                                    <div class="controls ">
+                                        <input id="height_embed" type="text" name="height" value="500" placeholder="" class="form-control" @keyup="genIframe()">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="form-group pre control-full">
+                            <label for="code" class="control-label" for="code">โค้ด</label>
+                            <div class="controls ">
+
+                                    <textarea id="code" name="code" cols="20" rows="3" placeholder=""
+                                              class="form-control"></textarea>
+
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Ens Content-->
+</main>
+<footer>
+    
+
+
+
+<div class="container pt-4" xmlns="http://www.w3.org/1999/html">
+    <div class="col-md-12">
+        <div class="alert alert-info">
+            <form method="POST" action="/feedback">&nbsp;
+                
+<input type="hidden" name="_csrf_token" value="Ijg2Y2Q0MTBmYTc3Nzc3NTYxOTVjNDQ2MzMwY2JlOTQ5OWM2MGNiNjUi.Zw89IA.oUa4MG-EmUdbg3scWIpSe1j4Ar8"/> &nbsp;&nbsp;
+                <div class="row">
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 my-2">
+                        <div id="thank-area" style="display: none">
+                            ขอบคุณสำหรับความคิดเห็นของท่าน
+                        </div>
+                        <div id="useful-area">
+
+                            เว็บไซต์นี้เป็นประโยชน์ใช่หรือไม่ ?
+
+                            <button type="submit"
+                                    onclick="return alert('ขอบคุณสำหรับความคิดเห็นของท่าน')"
+                                    name="home_title"
+                                    value="เว็บไซต์นี้มีประโยชน์"
+                                    class="btn btn-info" data-aws="1">
+                                <span class="fa fa-check"></span>
+                                ใช่
+                            </button>
+                            &nbsp;&nbsp;
+                            <button type="submit"
+                                    name="home_title"
+                                    value="เว็บไซต์นี้ไม่มีประโยชน์"
+                                    class="btn btn-info" data-aws="0">
+                                <span class="fa fa-times"></span>
+                                ไม่
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="col-lg-6 col-md-12 col-sm-12 my-2 text-end">
+                        <button type="submit"
+                                class="btn btn-primary"
+                                name="home_title"
+                                value="แจ้งปัญหาการใช้บริการ">
+                            แจ้งปัญหาการใช้งาน
+                        </button>
+                    </div>
+
+                </div>
+            </form>
+            <div class="clearfix"></div>
+
+        </div>
+    </div>
+</div>
+
+        
+<div class="overlay-link p-2">
+  <div class="sw-lang">
+    <a href="/dataset/priv_hos?authuser=0"><img src="/dga/images/icons/th.png" alt="th" /></a>
+    <a href="/en/dataset/priv_hos?authuser=0" class="mt-2"><img src="/dga/images/icons/en.png" alt="en" /></a>
+  </div>
+  <div class="sw-text">
+    <a class="font-14 active" onclick="setCookie('fontCkan', '14', 1)">ก</a>
+    <a class="font-16 " onclick="setCookie('fontCkan', '16', 1)">ก</a>
+    <a class="font-18 " onclick="setCookie('fontCkan', '18', 1)">ก</a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-top p-3 pt-xl-2">
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-12 col-sm-5 col-md-5 col-lg-3 col-xl-3 row d-flex justify-content-between"
+        >
+          <div class="row">
+            <div class="col-5">
+              <img
+                src="/dga/images/web/footer-logo1.png"
+                alt="Footer Logo"
+                class="img-fluid"
+              />
+            </div>
+            <div class="col-7">
+              <img
+                src="/dga/images/web/AW_DGA_logo-type-D-1.png"
+                alt="Footer Logo"
+                class="img-fluid"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-sm-7 col-md-7 col-lg-4 col-xl-4 ps-0">
+          <p class="mb-0 pt-md-2">
+            สำนักงานพัฒนารัฐบาลดิจิทัล (องค์การมหาชน) (สพร.)
+          </p>
+          <p class="mb-0">Digital Government Development Agency</p>
+          <p class="mb-0">(Public Organization) (DGA)</p>
+        </div>
+        <div
+          class="col-12 col-sm-12 col-md-12 col-lg-5 col-xl-5 text-end mt-3 mt-lg-0"
+        >
+          <div class="footer-link pt-xl-2">
+            
+                <a href="/feedback">ส่งข้อเสนอแนะ</a> |
+            
+            
+                <a href="/pages/dga-open-government-license">เงื่อนไขและข้อตกลง</a> |
+            
+
+            <a href="/pages/privacy-notice-open-government-data">ความเป็นส่วนตัว</a> |
+
+            
+                <a href="/pages/about-data-go-th">เกี่ยวกับเรา</a>
+            
+
+          </div>
+          <div class="text-end">
+            <a href="tel:026126060">โทรศัพท์: (+66)0 2612 6060</a><br />
+            <a class="mailto:contact@dga.or.th">อีเมล: contact@dga.or.th</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copy-right">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 text-center p-3">
+            All rights reserved 2015. Digital Government Development Agency (Public
+                        Organization) (DGA)
+            <!-- All rights reserved 2024. Digital Government Development Agency
+            (Public Organization) (DGA) -->
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function getCookie(cname) {
+    let name = cname + "=";
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i <ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+  }
+
+  function setCookie(cname, cvalue, exdays) {
+    const d = new Date();
+    d.setTime(d.getTime() + (exdays*24*60*60*1000));
+    let expires = "expires="+ d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
+
+  function setfontChangeData(font) {
+    $.each($('html').find('*').not('meta, title, link, script, head, style, header, footer, .sw-text a'), function (key, value) {
+        if($(this).css('font-size') != '' && typeof $(this).css('font-size') !== 'undefined') {
+            $(this).attr('font-size-old', $(this).css('font-size'));
+        }
+    });
+
+    changeFont(font);
+  }
+
+  function changeFont(fontStyle) {
+
+    $('.sw-text a.font-14, .sw-text a.font-16, .sw-text a.font-18').removeClass('active');
+    $('.font-' + fontStyle).addClass('active');
+    // $('body').removeClass('font-data-sm');
+    // $('body').removeClass('font-data-md');
+    // $('body').removeClass('font-data-lg');
+    // $('.font-' + fontStyle).addClass('active');
+    // $('body').addClass('font-data-' + fontStyle);
+
+    let size = 0;
+    if(fontStyle == '14') {
+      size = 0;
+    } else if(fontStyle == '16') {
+      size = 2;
+    } else if(fontStyle == '18') {
+      size = 4;
+    }
+
+    $.each($('html').find('*').not('meta, title, link, script, head, style, header, footer, .sw-text a'), function (key, value) {
+        if($(this).attr('font-size-old') != '' && typeof $(this).attr('font-size-old') !== 'undefined') {
+          let originalSize = $(this).attr('font-size-old').replace( /[^\d.]/g, '' );
+          let originalSizeCurrent = $(this).css('font-size').replace( /[^\d.]/g, '' );
+          let newSize = $(this).css('font-size').replace(originalSizeCurrent, (parseFloat(originalSize) + parseFloat(size)));
+          $(this).css({"font-size": newSize});
+        }
+    });
+  }
+
+  $(document).ready(function () {
+    let fontCkan = getCookie('fontCkan');
+    if(fontCkan == '' || typeof fontCkan === 'undefined') {
+      fontCkan = '14';
+    }
+    setfontChangeData(fontCkan);
+
+    $('.sw-text a.font-14, .sw-text a.font-16, .sw-text a.font-18').click(function() {
+      window.location.reload();
+    });
+
+    // $('#logout-link').on('click', () => {
+    //     document.cookie = `policy_opendata_nrct=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;domain=${location.hostname}`;
+    // })
+  });
+</script>
+    
+
+</footer></body>
+</html>
+
+<script src="https://cdn.onefence.co/sp.cookie.min.js" type="text/javascript"></script>
+<script src="https://api.onefence.co/js?user=71f6189d34feef94966e26597a02eb97653e1937991d6a668ab63ae61d05fcc3&key=4cada23605656286218ffb818f5bf8ea3ff1c2fb48426b06dc8a33871b000129&debug=Imb3gg!ingU&tenant_name=dgacompany.L2RnYWNvbXBhbnkvdXNlcg=="></script>
+
+
+
+
+<script>
+    $(function () {
+        let url = location.pathname;
+        url = url.substring($('body').data('locale-root'), url.length);
+        url = url.replace(/\/*$/, '');
+        $.ajax({
+            url: $('body').data('site-root') + '_tracking',
+            type: 'POST',
+            data: {url: url, type: 'page'},
+            timeout: 300
+        });
+    });
+</script>
+
+
+<script>
+    document.querySelectorAll('a.resource-url-analytics').forEach(link => {
+
+        link.addEventListener('click', (e) => {
+
+            alert(e.target.closest('a').getAttribute('href'))
+            alert('ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร')
+
+            gtag('event', 'resource_download', {
+              'package_title': 'ที่ตั้งโรงพยาบาลเอกชนในพื้นที่เขตกรุงเทพมหานคร',
+              'resource_url':  e.target.closest('a').getAttribute('href'),
+              'event_label': 'Resource URL Analytics',
+              'value': 1
+            });
+
+        });
+    });
+</script>
